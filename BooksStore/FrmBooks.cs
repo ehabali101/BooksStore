@@ -113,14 +113,13 @@ namespace BooksStore
             {
                 if (!Convert.ToBoolean( dgvBooks.Rows[e.RowIndex].Cells["colInStock"].Value))
                     dgvBooks.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
-            }
-            
+            }      
             else if (dgvBooks.Columns[e.ColumnIndex].Name.Equals("colPrice"))
             {
                 List<Book> books = (List<Book>)dgvBooks.DataSource;
-                var maxPrice = Convert.ToDouble(books.Max(p => p.Price).Replace(',', '.'));
-                double minPrice = Convert.ToDouble(books.Min(p => p.Price).Replace(',', '.'));
-                double doubleValue = Convert.ToDouble(Convert.ToString( e.Value).Replace(',','.'));
+                var maxPrice = books.Max(p => p.Price);
+                double minPrice = books.Min(p => p.Price);
+                double doubleValue = Convert.ToDouble(e.Value);
 
                 e.CellStyle.BackColor = GetColorOf(doubleValue, minPrice, maxPrice);
             }

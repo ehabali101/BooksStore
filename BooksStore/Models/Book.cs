@@ -12,7 +12,7 @@ namespace BooksStore.Models
 
         public string Author { get; set; }
 
-        public string Price { get; set; }
+        public double  Price { get; set; }
 
         public string Year { get; set; }
 
