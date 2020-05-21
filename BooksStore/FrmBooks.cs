@@ -113,6 +113,8 @@ namespace BooksStore
             {
                 if (!Convert.ToBoolean( dgvBooks.Rows[e.RowIndex].Cells["colInStock"].Value))
                     dgvBooks.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+                else
+                    dgvBooks.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
             }      
             else if (dgvBooks.Columns[e.ColumnIndex].Name.Equals("colPrice"))
             {
